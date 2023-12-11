@@ -5,6 +5,7 @@
  */
 public class Ejercicio12 {
     static int[] numerosAleatorios = new int[10];
+    static boolean valoresGenerados = false;
 
     public static void main(String[] args) {
         menu();
@@ -48,9 +49,16 @@ public class Ejercicio12 {
      * Función que almacena datos en el array y los muestra
      */
     public static void array() {
-        for (int i = 0; i < numerosAleatorios.length; i++) {
-            numerosAleatorios[i] = (int) (Math.random() * 11);
-            System.out.print(numerosAleatorios[i] + " | ");
+        if (!valoresGenerados) {
+            for (int i = 0; i < numerosAleatorios.length; i++) {
+                numerosAleatorios[i] = (int) (Math.random() * 11);
+                System.out.print(numerosAleatorios[i] + " | ");
+            }
+            valoresGenerados = true;
+        } else {
+            for (int i = 0; i < numerosAleatorios.length; i++) {
+                System.out.print(numerosAleatorios[i] + " | ");
+            }
         }
     }
 
